@@ -1,0 +1,17 @@
+# Let NetworkManager manage all devices on this system
+# Public LAN bridge for KVM virbr0(default)
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eno1:
+      dhcp4: no
+  bridges:
+    virbr0:
+      dhcp4: no
+      addresses: [172.16.1.50/24]
+      gateway4: 172.16.1.254
+      nameservers:
+        addresses: [172.16.1.253,8.8.4.4]
+      interfaces:
+        - eno1
