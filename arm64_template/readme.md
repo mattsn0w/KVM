@@ -6,7 +6,7 @@ You should ensure that you have a fan and cooling setup with sufficient power to
 ### RaspberryPi Requirments
 * One (or more) RaspberryPi 4 with 8GB of RAM
 * An ethernet wired network with a DHCP server. This demo was setup with a docker containerized ISC-dhcpd server to handle MAC address ip mapping.
-* Base OS install of Ubuntu 20.04 LTS ARM64 - [Download the SDCard image here](https://cdimage.ubuntu.com/releases/20.04.2/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz) and install to an SDCard per the install instructions.
+* Base OS install of Ubuntu 20.04 LTS ARM64 - [Download the SDCard image here](https://cdimage.ubuntu.com/releases/20.04.2/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz) and install to an SDCard per the [install instructions](https://ubuntu.com/download/raspberry-pi).
 
 ### Packages to install
 The following packages should be installed on the RaspberryPi KVM host. These package namesare specific to Ubuntu, but you should be able to find equivalents on CentOS. 
