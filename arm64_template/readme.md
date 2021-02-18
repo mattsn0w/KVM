@@ -67,5 +67,5 @@ After install and update is successful, run `poweroff` in the guest OS, then `vi
 * https://www.cyberciti.biz/faq/how-to-install-kvm-on-ubuntu-20-04-lts-headless-server/
 * https://www.cyberciti.biz/faq/howto-linux-delete-a-running-vm-guest-on-kvm/
 * https://stafwag.github.io/blog/blog/2020/07/23/howto-use-cloud-images-on-rpi4/
-
+* https://fabianlee.org/2019/02/16/kvm-virt-manager-to-connect-to-a-remote-console-using-qemussh/
 
