@@ -1,0 +1,23 @@
+#cloud-config
+ssh_authorized_keys:
+  -  # Insert an SSH public key here to enable root access via ssh.
+users:
+  - default
+  - name: # userid to create locally on the vm
+    groups: wheel, sudo
+    lock_passwd: false
+    passwd: # password generated from "python -c 'import crypt,getpass; print(crypt.crypt(getpass.getpass(), crypt.mksalt(crypt.METHOD_SHA512)))' "
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - # Insert an SSH public key here to enable access to the above 
+bootcmd:
+  - echo '127.0.0.1 armvm01.example.net armvm01' >> /etc/hosts
+local-hostname: armvm01
+fqdn: armvm01.example.net
+hostname: armvm01
+ssh_pwauth: yes
+runcmds:
+  - echo "AllowUsers ABOVECREATEDUSERID" >> /etc/ssh/sshd_config
+  - restart ssh
+package_upgrade: true
