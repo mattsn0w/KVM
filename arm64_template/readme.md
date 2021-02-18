@@ -5,7 +5,7 @@ You should ensure that you have a fan and cooling setup with sufficient power to
 
 ### RaspberryPi Requirments
 * One (or more) RaspberryPi 4 with 8GB of RAM
-* An ethernet wired network with a DHCP server. This demo was setup with a docker containerized ISC-dhcpd server to handle MAC address ip mapping.
+* An ethernet wired network with a DHCP server. I  use (networkboot/dhcpd:1.1.0)[https://hub.docker.com/layers/networkboot/dhcpd/1.1.0/images/sha256-13b80e3902ab241f464c7969bae0043a329da7d16c7ce44ba65cb4ba524d41a8?context=explore] paired with a containerized [PiHole DNS server](https://hub.docker.com/r/pihole/pihole) for local DNS. 
 * Base OS install of Ubuntu 20.04 LTS ARM64 - [Download the SDCard image here](https://cdimage.ubuntu.com/releases/20.04.2/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz) and install to an SDCard per the [install instructions](https://ubuntu.com/download/raspberry-pi).
 
 ### Packages to install
