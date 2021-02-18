@@ -45,8 +45,8 @@ virsh net-dumpxml --network default
 </network>
 ```
 
-## VM Cloud Images
-The Cloud-init enabled image for kvm deployment [can be downloaded here](https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-arm64.img) .
+## VM Cloud Images for Guest VMs
+The Cloud-init enabled image for kvm deployment [can be downloaded here](https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-arm64.img). The same  script mentioned here will also work for the [CentOS 8.3](https://cloud.centos.org/centos/8/aarch64/images/CentOS-8-GenericCloud-8.3.2011-20201204.2.aarch64.qcow2) ARM64 generic cloud images.
 Place the downloaded image in `/var/lib/libvirt/images` or whereever you would like to store them but you must modify the respective scripts.
 
 ### useful commands
