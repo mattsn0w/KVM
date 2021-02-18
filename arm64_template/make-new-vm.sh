@@ -1,6 +1,8 @@
 #!/bin/bash
 
-VM_NAME=armvm01
+# Change 0N to 01, 02, 03, etc... 
+# Change the MAC address to unique MACs to your network.
+VM_NAME=armvm0N
 VM_MAC='52:54:00:B3:3F:DD'
 IMAGE_NAME=${VM_NAME}_Ubuntu-Focal-server.img
 OS_VAR='ubuntu20.04'
