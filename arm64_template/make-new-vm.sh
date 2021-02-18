@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# There are several assumptions for this script to work.
-# 1) The required tools are installed on the hypervisor host. 
-#    The following packages should be installed: libvirt-daemon, cloud-utils, libosinfo-bin, network-manager, net-tools
-# 2) This script was run on Ubuntu 20.04 ARM64 on a RaspberryPi 4 w/ 8GB of RAM, ethernet port was bridged to br0 and the default network setup as a bridge.
-# 3) each VM is stored in it's own directory as $VMNAME
-# 4) the OS varient is found in the  output of `osinfo-query os` command
-# 5) ARM64 cloud-images were downloaded from ubuntu and centos cloud image repos. 
-# 6) After install and update is successful, run `poweroff` in the guest OS, then `virsh autostart armvm0N &&  virsh start armvm0N` to restart the VM.
-
 VM_NAME=armvm01
 VM_MAC='52:54:00:B3:3F:DD'
 IMAGE_NAME=${VM_NAME}_Ubuntu-Focal-server.img
