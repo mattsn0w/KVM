@@ -26,7 +26,7 @@ The following packages should be installed on the RaspberryPi KVM host. These pa
 
 ###  Networking
 #### Base OS bridge configuration.
-I had trouble trying to bridgfe the wlan0 interface to the KVM network so I suggest using only the  ethernet interface.
+I had trouble trying to bridge the wlan0 interface to the KVM network so I suggest using only the ethernet interface.
 Do not try to have eth0 and wlan0 up and running at the same time unless you really know your way around Linux networking.
 See the [Netplan yaml configuration example](https://github.com/mattsn0w/KVM/blob/master/arm64_template/etc/netplan/50-cloud-init.yaml) for an example that relies on DHCP just like the guest VMs.
 If you have a static IPto use then just make sure that you assign it to the bridge interface ( `br0` ).
