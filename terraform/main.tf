@@ -35,20 +35,10 @@ resource "libvirt_volume" "tfvm" {
   pool           = libvirt_pool.tfpool.name
 }
 
-#data "template_file" "user_data" {
-#  template = file("${path.module}/cloud_init.cfg" )
-#}
-
-#data "template_file" "network_config" {
-#  template = file("${path.module}/network_config.cfg")
-#}
-
 resource "libvirt_cloudinit_disk" "commoninit" {
   count = 2
   name           = "commoninit${count.index}.iso"
-  #user_data      = data.template_file.user_data.rendered
   user_data      = templatefile("${path.module}/cloud_init.cfg", {instance = count.index} )
-  #network_config = data.template_file.network_config.rendered
   network_config = file("${path.module}/network_config.cfg")
   pool           = libvirt_pool.tfpool.name
 }
