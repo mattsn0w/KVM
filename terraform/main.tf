@@ -11,6 +11,12 @@ provider "libvirt" {
   uri = "qemu:///system"
 }
 
+variable "vm_id" {
+  type        = number
+  default     = 2
+  description = "The instance ID ofthe VM."
+}
+
 
 resource "libvirt_pool" "tfpool" {
   name = "tfpool"
@@ -28,7 +34,7 @@ resource "libvirt_volume" "focal-base" {
 }
 
 resource "libvirt_volume" "tfvm" {
-  count = 2
+  count          = var.vm_id
   name           = "tfvm${count.index}.qcow2"
   base_volume_id = libvirt_volume.focal-base.id
   size           = 30000000000 
@@ -36,7 +42,7 @@ resource "libvirt_volume" "tfvm" {
 }
 
 resource "libvirt_cloudinit_disk" "commoninit" {
-  count = 2
+  count          = var.vm_id
   name           = "commoninit${count.index}.iso"
   user_data      = templatefile("${path.module}/cloud_init.cfg", {instance = count.index} )
   network_config = file("${path.module}/network_config.cfg")
@@ -44,11 +50,11 @@ resource "libvirt_cloudinit_disk" "commoninit" {
 }
 
 resource "libvirt_domain" "tfvm" {
-  count = 2
-  name   = "tfvm${count.index}.domain.com"
-  memory = "512"
-  vcpu   = "1"
-  machine = "q35"
+  count     = var.vm_id
+  name      = "tfvm${count.index}.domain.com"
+  memory    = "512"
+  vcpu      = "1"
+  machine   = "q35"
   cloudinit = libvirt_cloudinit_disk.commoninit[count.index].id
   xml {
     xslt = file("cdrom-model.xsl")
