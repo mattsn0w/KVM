@@ -12,6 +12,6 @@ network:
       addresses: [172.16.1.50/24]
       gateway4: 172.16.1.254
       nameservers:
-        addresses: [172.16.1.253,8.8.4.4]
+        addresses: [ 1.1.1.1,1.0.0.1 ]
       interfaces:
         - eno1
